@@ -55,18 +55,6 @@ public class Client {
     public void setDiscountAbove30kInPercents(double discountAbove30kInPercents) {
         this.discountAbove30kInPercents = discountAbove30kInPercents;
     }
-
-    public double getVolumeDiscount(double orderTotal) {
-        double volumeDiscount = 0;
-        if (orderTotal > 10000) {
-            volumeDiscount += this.discountAbove10kInPercents;
-        }
-        if (orderTotal > 30000) {
-            volumeDiscount += this.discountAbove30kInPercents;
-        }
-        return volumeDiscount;
-    }
-
     @Override
     public String toString() {
         return "Client{" +

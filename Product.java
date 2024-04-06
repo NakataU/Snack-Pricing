@@ -16,20 +16,19 @@ public class Product {
     }
 
     public double calculateStandardUnitPrice() {
-
-        return round(unitCost + (unitCost * markupInPercents),2);
+        return round(unitCost + (unitCost * markupInPercents), 2);
     }
 
     public double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
+        if (places < 0) throw new IllegalArgumentException("Number of decimal places cannot be negative");
         long factor = (long) Math.pow(10, places);
         long temp = Math.round(value * factor);
         return (double) temp / factor;
     }
 
-    public double calculatePromotionalUnitPrice(int quantity){
+    public double calculatePromotionalUnitPrice(int quantity) {
 
-        if(this.id == 4) {
+        if (this.id == 4) {
             int paidItems = quantity - (quantity / 3); // Number of items customer pays for
             return round((paidItems * calculateStandardUnitPrice() / quantity), 5);
         }

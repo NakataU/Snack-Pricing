@@ -25,7 +25,7 @@ public class Solution {
         for (Client client : clients) {
             if (client.getId() == clientId) {
                 basicDiscount = client.getBasicDiscountInPercents();
-                if (orderTotal > 10000) {
+                if (orderTotal > 10000 && orderTotal<30000) {
                     volumeDiscount = client.getDiscountAbove10kInPercents();
                 }
                 if (orderTotal > 30000) {
@@ -38,7 +38,7 @@ public class Solution {
     }
 
     public static double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
+        if (places < 0) throw new IllegalArgumentException("Number of decimal places cannot be negative");
         long factor = (long) Math.pow(10, places);
         long temp = Math.round(value * factor);
         return (double) temp / factor;
