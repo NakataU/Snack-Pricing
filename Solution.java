@@ -25,7 +25,7 @@ public class Solution {
         for (Client client : clients) {
             if (client.getId() == clientId) {
                 basicDiscount = client.getBasicDiscountInPercents();
-                if (orderTotal > 10000 && orderTotal<30000) {
+                if (orderTotal > 10000) {
                     volumeDiscount = client.getDiscountAbove10kInPercents();
                 }
                 if (orderTotal > 30000) {
